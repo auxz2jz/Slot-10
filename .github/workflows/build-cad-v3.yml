@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "src/v3_portable/**"
+      - "src/v3_exact/**"
       - ".github/workflows/build-cad-v3.yml"
       - "requirements.txt"
       - "docs/V3_DETAIL_UPGRADE.md"
@@ -32,7 +32,7 @@ jobs:
 
       - name: Reconstruct v3 generator
         run: |
-          cat src/v3_portable/generator.b64.part* | base64 -d > v3.py.gz
+          cat src/v3_exact/generator.b64.part* | base64 -d > v3.py.gz
           gzip -dc v3.py.gz > build_outdoor_gym_v3.py
           python -m py_compile build_outdoor_gym_v3.py
 
