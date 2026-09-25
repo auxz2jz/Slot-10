@@ -1,6 +1,6 @@
 # OUTDOOR_GYM_ROADMAP
 
-## Phase 0 — Repository baseline
+## Phase 0 — Repository baseline\n- [x] Replace v2 blockout master model with v3 component-level CAD (311 named components).\n- [x] Verify GitHub Actions v3 regeneration succeeds (Build detailed CAD v3 Run #3).
 - [x] Assign project to Slot-10.
 - [x] Preserve v2 parametric CAD generator.
 - [x] Store buy/build decision matrix and construction standards.
