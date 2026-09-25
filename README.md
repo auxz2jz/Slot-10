@@ -22,14 +22,14 @@ Before changing this project:
 
 ## Repository layout
 
-- `src/generate_outdoor_gym_v2.py.gz` — compressed parametric CadQuery generator.
+- `src/generator.b64.part00` … `part04` — compressed/base64 CadQuery generator source chunks.
 - `docs/` — decisions, construction standards, purchased-item interfaces, and build manual.
 - `.github/workflows/build-cad.yml` — GitHub Actions CAD build.
 - Generated STEP/STL/GLB/drawings are produced as a workflow artifact rather than committed as large generated binaries.
 
 ## CAD build
 
-The generator uses **CadQuery**, **trimesh**, and **CairoSVG**. Pushes that change CAD source or build docs trigger the CAD workflow. The workflow regenerates the full v2 package and uploads it as a downloadable GitHub Actions artifact.
+The workflow concatenates the five source chunks, decodes the base64 gzip stream, reconstructs the Python generator, then uses **CadQuery**, **trimesh**, and **CairoSVG**. Pushes that change CAD source or build docs trigger the CAD workflow. The workflow regenerates the full v2 package and uploads it as a downloadable GitHub Actions artifact.
 
 ## Current stage
 
