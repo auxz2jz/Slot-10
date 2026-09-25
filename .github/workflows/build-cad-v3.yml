@@ -1,0 +1,66 @@
+name: Build detailed CAD v3
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "src/v3_portable/**"
+      - ".github/workflows/build-cad-v3.yml"
+      - "requirements.txt"
+      - "docs/V3_DETAIL_UPGRADE.md"
+
+jobs:
+  build-v3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: System dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgl1 gzip
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Reconstruct v3 generator
+        run: |
+          cat src/v3_portable/generator.b64.part* | base64 -d > v3.py.gz
+          gzip -dc v3.py.gz > build_outdoor_gym_v3.py
+          python -m py_compile build_outdoor_gym_v3.py
+
+      - name: Generate detailed v3 CAD
+        env:
+          GYM_OUT: ${{ github.workspace }}/build/Outdoor_Wood_Gym_Detailed_v3
+        run: |
+          python build_outdoor_gym_v3.py
+
+      - name: Verify v3 outputs
+        run: |
+          test -f build/Outdoor_Wood_Gym_Detailed_v3/MASTER_8x8_GYM_DETAILED_V3.step
+          test -f build/Outdoor_Wood_Gym_Detailed_v3/MASTER_8x8_GYM_DETAILED_V3.glb
+          test -f build/Outdoor_Wood_Gym_Detailed_v3/RACK_SAFETY_DETAIL_V3.glb
+          test -f build/Outdoor_Wood_Gym_Detailed_v3/LEG_PRESS_DETAIL_V3.glb
+          test -f build/Outdoor_Wood_Gym_Detailed_v3/PULLEY_RECEIVER_DETAIL_V3.glb
+          python - <<'PY'
+          import json
+          j=json.load(open('build/Outdoor_Wood_Gym_Detailed_v3/V3_COMPONENT_MANIFEST.json'))
+          assert j['part_count'] >= 300, j
+          print('component count', j['part_count'])
+          PY
+
+      - name: Upload detailed v3 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Outdoor_Wood_Gym_Detailed_v3
+          path: |
+            build/Outdoor_Wood_Gym_Detailed_v3/
+            build/Outdoor_Wood_Gym_Detailed_v3.zip
+          retention-days: 90
