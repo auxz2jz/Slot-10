@@ -1,0 +1,39 @@
+#,Item,Decision,Design note
+1,Adjustable flat/incline/decline bench,BUY,Use commercial bench; do not structurally modify until exact model is selected.
+2,Bench press / squat rack,BUILD,Integrated 6×6 rear rack uprights + front safety uprights.
+3,Leg press,BUILD,Plate-loaded lever design.
+4,Leg extension + leg curl,BUILD,Combined removable receiver attachment.
+5,Preacher / biceps curl,BUILD,Removable receiver attachment.
+6,Pull-up / chin-up bar,BUY,Bolt commercial steel bar to reinforced top beam.
+7,Dip station,BUILD,Removable steel handles through-bolted to frame.
+8,High/low pulley system,BUY,Clip to rated frame anchors; removable for weather.
+9,Landmine pivot,BUY,Bolt to reinforced lower frame connection.
+10,Adjustable step / calf platform,BUY,Portable molded step.
+11,Resistance-band anchors,BUILD + BUY HARDWARE,Build into posts; buy forged/rated eyes.
+12,Weight plate + bar storage,BUILD + BUY HARDWARE,Integrated into accessible post faces.
+13,7-ft Olympic bar + individual plates,BUY,Standardize on 2-in Olympic.
+14,Bar rests + safety pipes,BUILD + BUY STEEL,Through-post steel pipe system.
+15,Outdoor floor/platform,BUILD + BUY RUBBER,2×6/plywood over compacted aggregate; stall mats.
+16,Olympic dumbbell handles,BUY,Use same 2-in plates.
+17,Seated-row foot brace,BUILD,Use cutoffs.
+18,Knee-raise / captain chair,BUILD,Add pads/grips to dip structure.
+19,Push-up handles,BUILD,Removable low steel handles.
+20,Back-extension / hyperextension,BUILD,Removable receiver attachment.
+21,Shoulder / overhead press,USE EXISTING,Bench + rack + bar.
+22,Cable crossover / chest fly,BUILD MOUNTS + BUY 2ND PULLEY,Dual rated side anchors.
+23,Cable handles / attachments,BUY,"Bundle of rope, D handles, row bar, ankle strap."
+24,Nordic hamstring anchor,BUILD,Cutoff base + padded ankle roller.
+25,Standing calf raise,USE EXISTING,Step + bar/rack.
+26,Seated calf raise,BUILD,Receiver-mounted plate-loaded lever.
+27,Lat-pulldown thigh hold-down,BUILD,Receiver-mounted padded crossbar.
+28,Pec deck / rear-delt fly,USE EXISTING,Dual pulley system.
+29,Assisted dip/pull-up,BUY,Loop resistance bands.
+30,Deadlift / barbell row,USE EXISTING,Reinforced platform.
+31,Belt squat,BUY BELT + USE EXISTING,Connect belt to landmine/low pulley.
+32,Hip thrust / glute bridge,BUY PAD + USE EXISTING,Bench + bar + plates.
+33,T-bar / landmine row handle,BUY,Olympic landmine handle.
+34,EZ curl bar,SKIP FOR NOW,Existing bar/dumbbells/cables cover function.
+35,Slant board / squat wedge,BUILD,Plywood/lumber cutoffs + rubber tread.
+36,Olympic collars,BUY,2-in quick-lock collars.
+37,Outdoor storage box,BUY,Weather-resistant resin deck box.
+38,Safety / attachment hardware,BUY INDIVIDUALLY,"Pins, carabiners, bushings, plates, padding, end caps."
