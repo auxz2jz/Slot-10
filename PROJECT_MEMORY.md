@@ -2,7 +2,7 @@
 
 **Repository:** auxz2jz/Slot-10  
 **Project:** Outdoor 8×8 Wooden Multi-Gym  
-**Status:** Detailed v2 prototype / pre-fabrication refinement
+**Status:** Detailed v3 component-level prototype / pre-fabrication refinement
 
 ## Permanent constraints
 
@@ -50,7 +50,7 @@ Existing equipment is reused for shoulder press, standing calf raise, pec/rear-d
 
 ## CAD source
 
-The v2 generator is a CadQuery Python program. In GitHub it is stored as five base64 chunks (`src/generator.b64.part00` through `part04`) containing a gzip-compressed copy of the verified generator. The Actions workflow concatenates, decodes, expands, syntax-checks, and executes it. Local/chat generation has already been verified successfully.
+The v2 generator remains archived as the original blockout baseline. The active detailed model is now v3, a component-level CadQuery assembly with 311 named parts, drilled hole rows, fasteners, hollow steel tubes, hardware, platform framing, detailed equipment proxies, and close-up GLB models.\n\nThe v2 generator is a CadQuery Python program. In GitHub it is stored as five base64 chunks (`src/generator.b64.part00` through `part04`) containing a gzip-compressed copy of the verified generator. The Actions workflow concatenates, decodes, expands, syntax-checks, and executes it. Local/chat generation has already been verified successfully.
 
 ## Change-control / anti-loop procedure
 
