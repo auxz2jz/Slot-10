@@ -1,0 +1,63 @@
+name: Build CAD package
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "src/**"
+      - "docs/**"
+      - ".github/workflows/build-cad.yml"
+      - "requirements.txt"
+
+jobs:
+  build-cad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: System dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcairo2 libgl1 gzip
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Reconstruct CAD generator
+        run: |
+          cat src/generator.b64.part* | base64 -d > generator.py.gz
+          gzip -dc generator.py.gz > generate_outdoor_gym_v2.py
+          python -m py_compile generate_outdoor_gym_v2.py
+
+      - name: Generate detailed CAD
+        env:
+          GYM_OUT: ${{ github.workspace }}/build/Outdoor_Wood_Gym_Detailed_v2
+        run: |
+          python generate_outdoor_gym_v2.py
+
+      - name: Verify expected outputs
+        run: |
+          test -f build/Outdoor_Wood_Gym_Detailed_v2/MASTER_BUILD_MANUAL.md
+          test -f build/Outdoor_Wood_Gym_Detailed_v2/DECISION_MATRIX.csv
+          test -f build/Outdoor_Wood_Gym_Detailed_v2/MASTER_8x8_GYM_ASSEMBLY.step
+          test -f build/Outdoor_Wood_Gym_Detailed_v2_ALL.zip
+          echo "Generated file count:"
+          find build/Outdoor_Wood_Gym_Detailed_v2 -type f | wc -l
+
+      - name: Upload CAD package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Outdoor_Wood_Gym_Detailed_v2
+          path: |
+            build/Outdoor_Wood_Gym_Detailed_v2/
+            build/Outdoor_Wood_Gym_Detailed_v2_ALL.zip
+          retention-days: 90
