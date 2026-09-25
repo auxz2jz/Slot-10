@@ -50,7 +50,7 @@ Existing equipment is reused for shoulder press, standing calf raise, pec/rear-d
 
 ## CAD source
 
-The v2 generator is a CadQuery Python program. In GitHub it is stored compressed as `src/generate_outdoor_gym_v2.py.gz`; the Actions workflow expands and executes it. Local/chat generation has already been verified successfully.
+The v2 generator is a CadQuery Python program. In GitHub it is stored as five base64 chunks (`src/generator.b64.part00` through `part04`) containing a gzip-compressed copy of the verified generator. The Actions workflow concatenates, decodes, expands, syntax-checks, and executes it. Local/chat generation has already been verified successfully.
 
 ## Change-control / anti-loop procedure
 
