@@ -5,7 +5,7 @@
 - [x] Preserve v2 parametric CAD generator.
 - [x] Store buy/build decision matrix and construction standards.
 - [x] Add GitHub Actions CAD-build workflow.
-- [ ] Confirm first GitHub Actions CAD artifact builds successfully.
+- [x] Confirm first GitHub Actions CAD artifact builds successfully (Run #2, artifact `Outdoor_Wood_Gym_Detailed_v2`).
 
 ## Phase 1 — Site + 8×8 platform
 - [ ] Finalize dirt-site preparation and drainage depth.
