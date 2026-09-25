@@ -1,0 +1,5 @@
+build/
+generate_outdoor_gym_v2.py
+__pycache__/
+*.pyc
+.DS_Store
